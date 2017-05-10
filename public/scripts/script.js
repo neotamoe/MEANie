@@ -13,9 +13,11 @@ myApp.controller( 'WhereMyPeeps', function( $http ){  // removed: [ '$http',
       method: 'POST',
       url: '/testPost',
       data: objectToSend
+    }).then (function(response){
+      vm.getRecords();
+      vm.nameIn ='';
+      vm.locationIn='';
     });
-    vm.nameIn ='';
-    vm.locationIn='';
   };
 
   vm.getRecords = function(){

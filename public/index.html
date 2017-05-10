@@ -10,7 +10,7 @@
     <img src='images/meanie_3.jpg' width=800 height=400 />
     <h1>MEANie</h1>
     <p>A simple, ugly MEAN stack example. Console has output from GET call.</p>
-    <div ng-controller="WhereMyPeeps as wmp">
+    <div ng-controller="WhereMyPeeps as wmp" ng-init="wmp.getRecords()">
       <input type="text" value="" ng-model="wmp.nameIn" placeholder="Name">
       <input type="text" value="" ng-model="wmp.locationIn" placeholder="Location">
       <button ng-click='wmp.addRecord()'>Add</button>

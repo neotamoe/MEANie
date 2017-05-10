@@ -45,6 +45,6 @@ app.post( '/testPost', function( req, res ){
     location:req.body.location
   }
   // create new record
-  var newRecord=ourModel( recordToAdd );
+  var newRecord = ourModel( recordToAdd );
   newRecord.save();
   });
