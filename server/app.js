@@ -11,7 +11,7 @@ app.use( bodyParser.json() );
 
 // mongoose stuff
 // 27017 is default mongo port
-mongoose.connect( 'localhost:27017/meanie' );
+mongoose.connect( 'mongodb://localhost:27017/meanie' );
 
 var ourSchema = new  mongoose.Schema({
   name: String,

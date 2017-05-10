@@ -1,6 +1,6 @@
 var myApp=angular.module( 'myApp', [] );
 
-myApp.controller( 'WhereMyPeeps', [ '$http', function( $http ){
+myApp.controller( 'WhereMyPeeps', function( $http ){  // removed: [ '$http',
   var vm = this;
 
   vm.addRecord = function(){
@@ -8,6 +8,7 @@ myApp.controller( 'WhereMyPeeps', [ '$http', function( $http ){
       name: vm.nameIn,
       location: vm.locationIn,
     };
+    console.log('objectToSend:',objectToSend);
     $http({
       method: 'POST',
       url: '/testPost',
@@ -22,10 +23,10 @@ myApp.controller( 'WhereMyPeeps', [ '$http', function( $http ){
       method: 'GET',
       url: '/getRecords',
     }).then( function( response ){
-      vm.allTheRecords = response;
-      console.log( vm.allTheRecords );
-    }), function myError( response ){
+      vm.allTheRecords = response.data;
+      console.log('vm.allTheRecords:', vm.allTheRecords );
+    }, function myError( response ){
       console.log( response.statusText );
-    };
+    });
   };
-}]);
+});
