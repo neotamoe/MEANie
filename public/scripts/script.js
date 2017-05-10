@@ -14,10 +14,12 @@ myApp.controller( 'WhereMyPeeps', function( $http ){  // removed: [ '$http',
       url: '/testPost',
       data: objectToSend
     }).then (function(response){
-      vm.getRecords();
-      vm.nameIn ='';
-      vm.locationIn='';
+      console.log(response.statusText);
+      // vm.getRecords();  -->doesn't work when put here...why not?!  Huck and I couldn't figure out.
     });
+    vm.getRecords();
+    vm.nameIn ='';
+    vm.locationIn='';
   };
 
   vm.getRecords = function(){

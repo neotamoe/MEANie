@@ -38,12 +38,13 @@ app.listen( 8080, 'localhost', function( req, res ){
 
 app.post( '/testPost', function( req, res ){
   console.log( 'req.body.name: ' + req.body.name );
+  console.log( 'req.body.location: ' + req.body.location );
   // retrieved the req.body
   // putting it into an object to be saved in the db
   var recordToAdd={
     name:req.body.name,
     location:req.body.location
-  }
+  };
   // create new record
   var newRecord = ourModel( recordToAdd );
   newRecord.save();

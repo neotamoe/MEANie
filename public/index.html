@@ -15,7 +15,7 @@
       <input type="text" value="" ng-model="wmp.locationIn" placeholder="Location">
       <button ng-click='wmp.addRecord()'>Add</button>
       <button ng-click='wmp.getRecords()'>Read</button>
-      <div  ng-repeat="thing in wmp.allTheRecords">
+      <div  ng-repeat="thing in wmp.allTheRecords track by $index">
         <h2>{{thing.name}}</h2>
         <p>{{thing.location}}</p>
       </div>
