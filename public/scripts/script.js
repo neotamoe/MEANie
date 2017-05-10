@@ -5,8 +5,8 @@ myApp.controller( 'WhereMyPeeps', [ '$http', function( $http ){
 
   vm.addRecord = function(){
     var objectToSend ={
-      name= vm.nameIn,
-      location= vm.locationIn,
+      name: vm.nameIn,
+      location: vm.locationIn,
     };
     $http({
       method: 'POST',
@@ -18,7 +18,7 @@ myApp.controller( 'WhereMyPeeps', [ '$http', function( $http ){
   };
 
   vm.getRecords = function(){
-    $.http({
+    $http({
       method: 'GET',
       url: '/getRecords',
     }).then( function( response ){
