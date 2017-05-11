@@ -16,11 +16,11 @@ myApp.controller( 'WhereMyPeeps', function( $http ){  // removed: [ '$http',
     }).then (function(response){
       console.log(response.statusText);
       // vm.getRecords();  -->doesn't work when put here...why not?!  Huck and I couldn't figure out.
-    });
+    });  // end $http
     vm.getRecords();
     vm.nameIn ='';
     vm.locationIn='';
-  };
+  };  // end addRecord
 
   vm.getRecords = function(){
     $http({
@@ -31,6 +31,16 @@ myApp.controller( 'WhereMyPeeps', function( $http ){  // removed: [ '$http',
       console.log('vm.allTheRecords:', vm.allTheRecords );
     }, function myError( response ){
       console.log( response.statusText );
-    });
+    });  // end $http
+  };  // end getRecords
+
+  vm.deleteRecord = function(id){
+    $http({
+      method: 'DELETE',
+      url: '/deleteRecord/'+ id,
+    }).then (function(response){
+      console.log(response.statusText);
+    }); // end $http
+    vm.getRecords();
   };
 });

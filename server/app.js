@@ -8,6 +8,7 @@ var mongoose = require( 'mongoose' );
 // uses
 app.use( express.static( 'public' ) );
 app.use( bodyParser.json() );
+app.use(bodyParser.urlencoded({extended:true}));
 
 // mongoose stuff
 // 27017 is default mongo port
@@ -48,4 +49,19 @@ app.post( '/testPost', function( req, res ){
   // create new record
   var newRecord = ourModel( recordToAdd );
   newRecord.save();
+});
+
+app.delete( '/deleteRecord/:id', function( req, res ){
+  console.log('req.params.id:', req.params.id);
+    // retrieved the req.body
+  // putting it into an object to be saved in the db
+  ourModel.remove({_id: req.params.id}, function(err){
+    if (err){
+      console.log('error:', err);
+      res.sendStatus(400);
+    } else{
+      console.log('removed id: ', req.params.id);
+      res.sendStatus(200);
+    }
   });
+});

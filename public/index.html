@@ -18,6 +18,7 @@
       <div  ng-repeat="thing in wmp.allTheRecords track by $index">
         <h2>{{thing.name}}</h2>
         <p>{{thing.location}}</p>
+        <button ng-click='wmp.deleteRecord(thing._id)'>Delete</button>
       </div>
     </div>
   </body>
